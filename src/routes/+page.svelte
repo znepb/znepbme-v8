@@ -37,6 +37,9 @@
 	import Feather from '@lucide/svelte/icons/feather';
 	import Globe from '@lucide/svelte/icons/globe';
 	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import type { Project } from '$lib/types';
+
+	let { data }: { data: { projects: Project[] } } = $props();
 </script>
 
 <section class="hero">
@@ -377,6 +380,20 @@
 			A handful of them have been compiled into this neat list for your convenience, and you can
 			start by checking out some of the highlights:
 		</p>
+	</div>
+
+	<div class="projects">
+		{#each data.projects.filter((proj) => proj.isFeatured) as project (project.name)}
+			<div class="project">
+				<img
+					src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0]}`}
+					alt="photo"
+					width={370}
+					height={208}
+				/>
+				{project.name}
+			</div>
+		{/each}
 	</div>
 </section>
 
@@ -733,5 +750,10 @@
 		& > p {
 			font-size: 1.375rem;
 		}
+	}
+
+	.projects {
+		border-top: var(--accent-border);
+		padding: 0 3.75rem;
 	}
 </style>
