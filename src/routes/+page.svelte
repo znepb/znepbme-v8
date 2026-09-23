@@ -1,6 +1,4 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.svg';
-
 	import header from '$lib/assets/images/header.png';
 
 	import kglw from '$lib/assets/images/kglw.png';
@@ -37,14 +35,20 @@
 	import Feather from '@lucide/svelte/icons/feather';
 	import Globe from '@lucide/svelte/icons/globe';
 	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import ChevronUp from '@lucide/svelte/icons/chevron-up';
+
 	import type { Project } from '$lib/types';
+	import Icon from '$lib/Icon.svelte';
+	import ProjectCard from '$lib/Project.svelte';
+	import Logo from '$lib/Logo.svelte';
 
 	let { data }: { data: { projects: Project[] } } = $props();
 </script>
 
 <section class="hero">
-	<div class="hero-spacer">
-		<img src={logo} alt="znepb.me Logo" />
+	<div class="nav-spacer">
+		<Logo />
 	</div>
 	<main class="hero-content">
 		<div class="hero-image" style:--bg-url={`url(${header})`}>
@@ -383,18 +387,116 @@
 	</div>
 
 	<div class="projects">
-		{#each data.projects.filter((proj) => proj.isFeatured) as project (project.name)}
-			<div class="project">
-				<img
-					src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0]}`}
-					alt="photo"
-					width={370}
-					height={208}
-				/>
-				{project.name}
-			</div>
+		{#each data.projects.filter((proj) => proj.isFeatured) as project (project.id)}
+			<ProjectCard {project} />
 		{/each}
 	</div>
+
+	<details class="details">
+		<summary>
+			<span class="details-when-closed details-summary">
+				<span>view more</span>
+				<ChevronDown />
+			</span>
+			<span class="details-when-open details-summary">
+				<span>view less</span>
+				<ChevronUp />
+			</span>
+		</summary>
+		<div class="more-projects">
+			{#each data.projects.filter((proj) => !proj.isFeatured) as project, index (project.id)}
+				<ProjectCard
+					{project}
+					style={`--idx: "${index}"; --bottom-border: ${index <= (data.projects.length / 4) * 4 - 2 ? 'var(--accent-border)' : 'none'}`}
+				/>
+			{/each}
+		</div>
+	</details>
+</section>
+
+<section class="tech-and-tools">
+	<header class="header">
+		<h2>all made with</h2>
+		<h1>technologies & tools</h1>
+		<div></div>
+	</header>
+
+	<p>
+		Of course, a creator is nothing without any tools. Across the years of making the projects above
+		and also other creations, I got myself into learning how to use lots of different technologies
+		and programs that are now part of my day-to-day work cycle. Some of them include:
+	</p>
+
+	<main class="tech-and-tools-grid">
+		<div class="subheading">
+			<h3>langs & frameworks</h3>
+			<div></div>
+		</div>
+		<div class="technology-list">
+			<div>
+				<Icon icon="typescript" />
+				typescript
+			</div>
+			<div>
+				<Icon icon="javascript" />
+				javascript
+			</div>
+			<div>
+				<Icon icon="kotlin" />
+				kotlin
+			</div>
+			<div>
+				<Icon icon="lua" />
+				lua
+			</div>
+			<div>
+				<Icon icon="html5" />
+				html5
+			</div>
+			<div>
+				<Icon icon="css" />
+				css3
+			</div>
+			<div>
+				<Icon icon="react" />
+				react
+			</div>
+			<div>
+				<Icon icon="svelte" />
+				svelte
+			</div>
+			<div>
+				<Icon icon="nextjs" />
+				nextjs
+			</div>
+			<div>
+				<Icon icon="sass" />
+				sass
+			</div>
+		</div>
+		<div class="subheading">
+			<h3>software & tools</h3>
+			<div></div>
+		</div>
+		<div class="technology-list">
+			<div>
+				<Icon icon="figma" />
+				figma
+			</div>
+			<div>
+				<Icon icon="git" />
+				git
+			</div>
+			<div>
+				<Icon icon="docker" />
+				docker
+			</div>
+			<div>
+				<Icon icon="kicad" />
+				kicad
+			</div>
+		</div>
+	</main>
 </section>
 
 <style lang="scss">
@@ -402,10 +504,6 @@
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-	}
-
-	.hero-spacer {
-		padding: 2.5rem;
 	}
 
 	.hero-content {
@@ -734,7 +832,6 @@
 			}
 
 			& > p {
-				font-size: 1.375rem;
 				z-index: 2;
 			}
 		}
@@ -746,14 +843,82 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-
-		& > p {
-			font-size: 1.375rem;
-		}
 	}
 
 	.projects {
 		border-top: var(--accent-border);
 		padding: 0 3.75rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.more-projects {
+		border-bottom: var(--accent-border);
+		padding: 0 3.75rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.tech-and-tools {
+		padding: 2.5rem 3.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.tech-and-tools-grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-rows: auto auto;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-flow: column;
+		align-items: start;
+	}
+
+	.details {
+		&[open] > summary {
+			& > .details-when-closed {
+				display: none;
+			}
+		}
+
+		&:not([open]) > summary {
+			& > .details-when-open {
+				display: none;
+			}
+		}
+
+		& > summary {
+			& > .details-summary {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			cursor: pointer;
+
+			&:hover {
+				background-color: var(--color-3);
+				color: #141b15;
+			}
+
+			list-style: none;
+			border-top: var(--accent-border);
+			border-bottom: var(--accent-border);
+			background-color: #141b15;
+			color: var(--color-3);
+			font-size: 1.5rem;
+			font-weight: 500;
+
+			padding: 1rem 3.75rem;
+
+			transition:
+				color 0.25s,
+				background-color 0.25s;
+
+			::-webkit-details-marker {
+				display: none;
+			}
+		}
 	}
 </style>

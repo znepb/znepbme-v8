@@ -1,12 +1,12 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.svg';
+	import Logo from '$lib/Logo.svelte';
 	import { page } from '$app/state';
 </script>
 
 <nav class="nav">
-	<div class="logo-box">
-		<img src={logo} alt="znepb.me Logo" />
-	</div>
+	<a class="logo-box" href="/">
+		<Logo />
+	</a>
 	<div class="links-container">
 		<ul class="links">
 			<li class:active={page.url.pathname === '/'}>
@@ -55,6 +55,16 @@
 	.logo-box {
 		padding: 2.5rem 3.75rem;
 		border-right: solid 1px var(--color-1);
+		color: var(--color-4);
+
+		transition:
+			color 0.25s,
+			background-color 0.25s;
+
+		&:hover {
+			background-color: var(--color-4);
+			color: var(--background);
+		}
 	}
 
 	.links-container {

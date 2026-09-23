@@ -2,6 +2,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import '../styles/global.scss';
 	import Navigation from '$lib/Navigation.svelte';
+	import Footer from '$lib/Footer.svelte';
 
 	let { children } = $props();
 </script>
@@ -19,3 +20,5 @@
 <Navigation />
 
 {@render children()}
+
+<Footer />

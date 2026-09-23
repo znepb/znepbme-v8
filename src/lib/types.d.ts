@@ -1,4 +1,5 @@
 export type Project = {
+	id: string;
 	name: string;
 	blurb: string;
 	status: 'finished' | 'deprecated' | 'paused' | 'inprogress' | 'active';
@@ -9,9 +10,9 @@ export type Project = {
 	description: string;
 	technologies: string[];
 	links: {
-		type: 'website';
+		type: 'website' | 'github';
 		url: string;
-	};
+	}[]?;
 	icon: string;
 	gallery: string[];
 };

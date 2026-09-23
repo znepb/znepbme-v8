@@ -31,7 +31,7 @@ export const listDirectory = (directory: string) => {
 };
 
 export const getObject = (object: string) => {
-	return new Promise<string>((resolve) => {
+	return new Promise<string>((resolve, reject) => {
 		minioClient.getObject('zme-v8', object).then((stream) => {
 			let data: string = '';
 
@@ -41,6 +41,10 @@ export const getObject = (object: string) => {
 
 			stream.on('close', () => {
 				resolve(data);
+			});
+
+			stream.on('error', () => {
+				reject();
 			});
 		});
 	});

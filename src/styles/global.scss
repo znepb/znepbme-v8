@@ -44,6 +44,10 @@ p {
 	margin: 0;
 }
 
+p {
+	font-size: 1.375rem;
+}
+
 body,
 html {
 	padding: 0;
@@ -61,7 +65,7 @@ html {
 
 .header {
 	& > h2 {
-		line-height: 1.5rem;
+		line-height: 2rem;
 		font-size: 1.5rem;
 		font-style: italic;
 		font-weight: 400;
@@ -70,7 +74,7 @@ html {
 	}
 
 	& > h1 {
-		line-height: 2rem;
+		line-height: 1.5rem;
 		font-size: 2rem;
 		font-weight: 800;
 		font-style: italic;
@@ -83,5 +87,61 @@ html {
 		height: 0.25rem;
 		background-color: var(--color-4);
 		margin-top: 0.75rem;
+	}
+}
+
+.subheading {
+	& > h3 {
+		line-height: 1.25rem;
+		font-size: 1.5rem;
+		font-style: italic;
+		font-weight: 800;
+		padding: 0;
+		margin: 0;
+	}
+
+	& > div {
+		width: 4rem;
+		height: 0.25rem;
+		background-color: var(--color-4);
+		margin-top: 0.75rem;
+	}
+}
+
+.nav-spacer {
+	padding: 2.5rem;
+}
+
+.markdown {
+	& > p {
+		font-size: 1.25rem;
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+.technology-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+
+	& > div {
+		display: inline-flex;
+		outline: var(--accent-border);
+		padding: 0.75rem 1rem;
+		color: var(--color-3);
+		font-weight: 500;
+		font-size: 1.375rem;
+
+		flex-direction: row;
+		align-items: center;
+		gap: 0.625rem;
+
+		& > svg {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 	}
 }
