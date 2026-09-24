@@ -6,7 +6,7 @@
 	let { data }: { data: { metadata: Blog; content: string } } = $props();
 </script>
 
-<main class="main">
+<main class="main markdown-pillarbox">
 	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.metadata.cover}`} class="header-image" />
 
 	<header class="post-header">
@@ -63,9 +63,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2.5rem;
-
-		margin: 2.5rem auto 2.5rem auto;
-		max-width: 60rem;
 	}
 
 	.header-image {
