@@ -1,4 +1,3 @@
-import { getObject, minioClient } from '$lib/minio';
 import type { Project } from '$lib/types';
 import Bun from 'bun';
 import type { PageServerLoad } from './$types';
@@ -6,8 +5,8 @@ import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
 	try {
-		await minioClient.statObject('zme-v8', `projects/${params.slug}.yml`);
-		const data = await getObject(`projects/${params.slug}.yml`);
+		await Bun.s3.exists(`projects/${params.slug}.yml`);
+		const data = await Bun.s3.file(`projects/${params.slug}.yml`).text();
 
 		if (!data) {
 			error(404, 'Not found');

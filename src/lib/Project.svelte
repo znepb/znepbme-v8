@@ -73,9 +73,10 @@
 <style>
 	.project {
 		border-left: var(--accent-border);
-		border-bottom: var(--bottom-border);
+		border-bottom: var(--accent-border);
 		display: flex;
 		flex-direction: column;
+		margin-bottom: -1px;
 
 		&:nth-child(4n),
 		&:last-child {
@@ -173,6 +174,11 @@
 				gap: 1.25rem;
 
 				& > .project-links {
+					display: flex;
+					flex-direction: row;
+					gap: 1.25rem;
+					align-items: center;
+
 					& > a {
 						display: inline-flex;
 						align-items: center;

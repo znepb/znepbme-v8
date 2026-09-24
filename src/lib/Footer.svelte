@@ -24,6 +24,7 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		color: var(--color-2);
 		font-size: 1.25rem;
+		margin-top: auto;
 	}
 
 	.footer-link {

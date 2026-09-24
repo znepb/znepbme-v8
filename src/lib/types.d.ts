@@ -16,3 +16,18 @@ export type Project = {
 	icon: string;
 	gallery: string[];
 };
+
+export type Blog = {
+	id: string;
+	title: string;
+	category: string;
+	cover: string;
+	blurb: string;
+	postDate: string;
+	updatedDate: string;
+	files: {
+		name: string;
+		size: number;
+		url: string;
+	}[];
+};

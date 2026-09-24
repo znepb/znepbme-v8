@@ -61,6 +61,7 @@ html {
 	background-color: var(--background);
 
 	min-height: 100vh;
+	scroll-behavior: smooth;
 }
 
 .header {
@@ -108,18 +109,31 @@ html {
 	}
 }
 
-.nav-spacer {
-	padding: 2.5rem;
+.heading-decoration {
+	width: 4rem;
+	height: 0.25rem;
+	background-color: var(--color-4);
+	margin-top: 0.75rem;
 }
 
 .markdown {
-	& > p {
-		font-size: 1.25rem;
+	& > *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
 
-		&:not(:last-child) {
-			margin-bottom: 1rem;
+	& > h1,
+	& > h2 {
+		&::after {
+			content: ' ';
+			display: block;
+			width: 4rem;
+			height: 0.25rem;
+			background-color: var(--color-4);
+			margin-top: 0.25rem;
 		}
 	}
+
+	font-size: 1.25rem;
 }
 
 .technology-list {
@@ -144,4 +158,9 @@ html {
 			height: 1.5rem;
 		}
 	}
+}
+
+.markdown-pillarbox {
+	margin: 2.5rem auto 2.5rem auto;
+	max-width: 60rem;
 }

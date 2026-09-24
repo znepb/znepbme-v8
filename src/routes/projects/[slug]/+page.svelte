@@ -2,15 +2,10 @@
 	import SvleteMarkdown from '@humanspeak/svelte-markdown';
 	import type { Project } from '$lib/types';
 	import Icon from '$lib/Icon.svelte';
-	import Logo from '$lib/Logo.svelte';
 	import Globe from '@lucide/svelte/icons/globe';
 
 	let { data }: { data: { project: Project } } = $props();
 </script>
-
-<div class="nav-spacer">
-	<Logo />
-</div>
 
 <header class="brief">
 	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.project.icon}`} />

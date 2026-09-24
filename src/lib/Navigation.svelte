@@ -10,28 +10,36 @@
 	<div class="links-container">
 		<ul class="links">
 			<li class:active={page.url.pathname === '/'}>
-				intro
-				{#if page.url.pathname === '/'}
-					<div class="highlight"></div>
-				{/if}
+				<a href="/">
+					intro
+					{#if page.url.pathname === '/'}
+						<div class="highlight"></div>
+					{/if}
+				</a>
 			</li>
 			<li class:active={page.url.pathname.startsWith('/projects')}>
-				projects
-				{#if page.url.pathname.startsWith('/projects')}
-					<div class="highlight"></div>
-				{/if}
+				<a href="/#projects">
+					projects
+					{#if page.url.pathname.startsWith('/projects')}
+						<div class="highlight"></div>
+					{/if}
+				</a>
 			</li>
 			<li class:active={page.url.pathname.startsWith('/articles')}>
-				articles
-				{#if page.url.pathname.startsWith('/articles')}
-					<div class="highlight"></div>
-				{/if}
+				<a href="/#articles">
+					thoughts
+					{#if page.url.pathname.startsWith('/blog')}
+						<div class="highlight"></div>
+					{/if}
+				</a>
 			</li>
 			<li class:active={page.url.pathname.startsWith('/contact')}>
-				contact
-				{#if page.url.pathname.startsWith('/contact')}
-					<div class="highlight"></div>
-				{/if}
+				<a href="/#contact">
+					contact
+					{#if page.url.pathname.startsWith('/contact')}
+						<div class="highlight"></div>
+					{/if}
+				</a>
 			</li>
 		</ul>
 	</div>
@@ -44,7 +52,7 @@
 		border-bottom: solid 1px var(--color-1);
 		width: 100%;
 
-		position: fixed;
+		position: sticky;
 		top: 0;
 		left: 0;
 		background: var(--background);
@@ -89,6 +97,10 @@
 
 		& > .active {
 			font-weight: 700;
+		}
+
+		& > * > a {
+			color: inherit;
 		}
 	}
 

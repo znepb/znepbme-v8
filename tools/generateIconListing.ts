@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 import Bun from 'bun';
 
 const glob = new Bun.Glob('*.svelte');
@@ -28,7 +30,8 @@ list.forEach((item) => {
 
 data += '}\n';
 data += '\n';
-data += 'export default index;';
+data += 'export type Icons = keyof typeof index;\n';
+data += 'export default index;\n';
 
 console.log(data);
 await Bun.write('./src/lib/icons/index.ts', data);

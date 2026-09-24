@@ -1,7 +1,7 @@
 <script lang="ts">
-	import index from './icons';
+	import index, { type Icons } from './icons';
 
-	const { icon }: { icon: keyof typeof index } = $props();
+	const { icon }: { icon: Icons } = $props();
 	const Icon = $derived(index[icon as keyof typeof index]);
 </script>
 

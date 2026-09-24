@@ -38,18 +38,16 @@
 	import ChevronDown from '@lucide/svelte/icons/chevron-down';
 	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 
-	import type { Project } from '$lib/types';
+	import type { Blog, Project } from '$lib/types';
 	import Icon from '$lib/Icon.svelte';
 	import ProjectCard from '$lib/Project.svelte';
-	import Logo from '$lib/Logo.svelte';
+	import BlogCard from '$lib/Blog.svelte';
+	import Contact from '$lib/Contact.svelte';
 
-	let { data }: { data: { projects: Project[] } } = $props();
+	let { data }: { data: { projects: Project[]; blogs: Blog[] } } = $props();
 </script>
 
 <section class="hero">
-	<div class="nav-spacer">
-		<Logo />
-	</div>
 	<main class="hero-content">
 		<div class="hero-image" style:--bg-url={`url(${header})`}>
 			<header>
@@ -108,27 +106,27 @@
 			<div></div>
 		</header>
 		<div class="hero-nav-sections">
-			<div>
+			<a href="#interests">
 				<LibraryBig size="28px" />
 				<span>things I like</span>
-			</div>
-			<div>
+			</a>
+			<a href="#projects">
 				<Wrench size="28px" />
 				<span>stuff I've made</span>
-			</div>
-			<div>
+			</a>
+			<a href="#articles">
 				<Feather size="28px" />
 				<span>posts I've written</span>
-			</div>
-			<div>
+			</a>
+			<a href="#contact">
 				<Globe size="28px" />
 				<span>platforms I use</span>
-			</div>
+			</a>
 		</div>
 	</nav>
 </section>
 
-<header class="section-heading">
+<header class="section-heading" id="interests">
 	<LibraryBig size="36px" />
 	<h1>things i like</h1>
 </header>
@@ -362,13 +360,13 @@
 	<div></div>
 </section>
 
-<header class="section-heading">
+<header class="section-heading" id="projects">
 	<Wrench size="36px" />
 	<h1>stuff I've made</h1>
 </header>
 
 <section>
-	<div class="projects-intro">
+	<div class="intro-section">
 		<header class="header">
 			<h2>some of my favorite</h2>
 			<h1>projects</h1>
@@ -386,7 +384,7 @@
 		</p>
 	</div>
 
-	<div class="projects">
+	<div class="card-list">
 		{#each data.projects.filter((proj) => proj.isFeatured) as project (project.id)}
 			<ProjectCard {project} />
 		{/each}
@@ -403,12 +401,9 @@
 				<ChevronUp />
 			</span>
 		</summary>
-		<div class="more-projects">
-			{#each data.projects.filter((proj) => !proj.isFeatured) as project, index (project.id)}
-				<ProjectCard
-					{project}
-					style={`--idx: "${index}"; --bottom-border: ${index <= (data.projects.length / 4) * 4 - 2 ? 'var(--accent-border)' : 'none'}`}
-				/>
+		<div class="expanded-card-list">
+			{#each data.projects.filter((proj) => !proj.isFeatured) as project (project.id)}
+				<ProjectCard {project} />
 			{/each}
 		</div>
 	</details>
@@ -473,6 +468,7 @@
 				<Icon icon="sass" />
 				sass
 			</div>
+			<div>java</div>
 		</div>
 		<div class="subheading">
 			<h3>software & tools</h3>
@@ -499,9 +495,90 @@
 	</main>
 </section>
 
+<header class="section-heading" id="articles">
+	<LibraryBig size="36px" />
+	<h1>posts I've written</h1>
+</header>
+
+<section>
+	<div class="intro-section">
+		<header class="header">
+			<h2>read some of my</h2>
+			<h1>thoughts</h1>
+			<div></div>
+		</header>
+		<p>
+			Since I'm human, I think about things. This is where I put those thoughts. I also put some
+			more detailed information on projects here. If you're interested, take a look.
+		</p>
+	</div>
+
+	<div
+		class="card-list"
+		style:border-bottom={`${data.blogs.length <= 4 ? 'var(--accent-border)' : 'none'}`}
+	>
+		{#each data.blogs as blog (blog.id)}
+			<BlogCard {blog} />
+		{/each}
+	</div>
+
+	{#if data.blogs.length > 4}
+		<details class="details">
+			<summary>
+				<span class="details-when-closed details-summary">
+					<span>view more</span>
+					<ChevronDown />
+				</span>
+				<span class="details-when-open details-summary">
+					<span>view less</span>
+					<ChevronUp />
+				</span>
+			</summary>
+			<div class="expand-card-list">
+				{#each data.projects.filter((proj) => !proj.isFeatured) as project, index (project.id)}
+					<ProjectCard
+						{project}
+						style={`--idx: "${index}"; --bottom-border: ${index <= (data.projects.length / 4) * 4 - 2 ? 'var(--accent-border)' : 'none'}`}
+					/>
+				{/each}
+			</div>
+		</details>
+	{/if}
+</section>
+
+<header class="section-heading" id="contact">
+	<Globe size="36px" />
+	<h1>platforms I use</h1>
+</header>
+
+<section>
+	<div class="intro-section">
+		<header class="header">
+			<h2>my means of</h2>
+			<h1>contact</h1>
+			<div></div>
+		</header>
+		<p>
+			If you need to get in touch or see more of my work, you can find me in the following online
+			platforms:
+		</p>
+	</div>
+
+	<div class="contact-cards">
+		<Contact icon="mail" name="E-Mail" contact="hello@znepb.me" url="mailto:hello@znepb.me" />
+		<Contact
+			icon="discord"
+			name="Discord"
+			contact="@znepb"
+			url="https://discord.com/users/356209633313947648"
+		/>
+		<Contact icon="github" name="Github" contact="znepb" url="https://github.com/znepb" />
+	</div>
+</section>
+
 <style lang="scss">
 	.hero {
-		min-height: 100vh;
+		min-height: calc(100vh - 8.3125rem);
 		display: flex;
 		flex-direction: column;
 	}
@@ -519,6 +596,7 @@
 		background-color: var(--background);
 		background-repeat: no-repeat, no-repeat;
 		background-size: cover, cover;
+		background-position: center;
 		background-blend-mode: normal, color-dodge;
 
 		padding: 3.75rem;
@@ -606,7 +684,8 @@
 		flex-grow: 1;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 
-		& > div {
+		& > a {
+			text-decoration: none;
 			display: flex;
 			flex-direction: column;
 			border-left: var(--accent-border);
@@ -837,7 +916,7 @@
 		}
 	}
 
-	.projects-intro {
+	.intro-section {
 		padding: 2.5rem 3.75rem;
 
 		display: flex;
@@ -845,18 +924,26 @@
 		gap: 2rem;
 	}
 
-	.projects {
+	.card-list {
 		border-top: var(--accent-border);
 		padding: 0 3.75rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
 
-	.more-projects {
+	.expanded-card-list {
 		border-bottom: var(--accent-border);
 		padding: 0 3.75rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.contact-cards {
+		border-top: var(--accent-border);
+		border-bottom: var(--accent-border);
+		padding: 0 3.75rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 
 	.tech-and-tools {
