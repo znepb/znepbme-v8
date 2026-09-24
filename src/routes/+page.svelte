@@ -689,7 +689,7 @@
 			display: flex;
 			flex-direction: column;
 			border-left: var(--accent-border);
-			background-color: #141b15;
+			background-color: var(--color-0);
 			color: var(--color-3);
 			cursor: pointer;
 			font-size: 1.5rem;
@@ -702,7 +702,7 @@
 
 			&:hover {
 				background-color: var(--color-3);
-				color: #141b15;
+				color: var(--color-0);
 			}
 		}
 	}
@@ -986,13 +986,13 @@
 
 			&:hover {
 				background-color: var(--color-3);
-				color: #141b15;
+				color: var(--color-0);
 			}
 
 			list-style: none;
 			border-top: var(--accent-border);
 			border-bottom: var(--accent-border);
-			background-color: #141b15;
+			background-color: var(--color-0);
 			color: var(--color-3);
 			font-size: 1.5rem;
 			font-weight: 500;

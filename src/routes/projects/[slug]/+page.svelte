@@ -223,7 +223,7 @@
 		flex-direction: column;
 
 		& > a {
-			background-color: #141b15;
+			background-color: var(--color-0);
 			color: var(--color-3);
 			padding: 1.25rem 3.75rem;
 			font-size: 1.5rem;
@@ -241,7 +241,7 @@
 				background-color 0.25s;
 
 			&:hover {
-				color: #141b15;
+				color: var(--color-0);
 				background-color: var(--color-3);
 			}
 

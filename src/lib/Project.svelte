@@ -183,7 +183,7 @@
 						display: inline-flex;
 						align-items: center;
 						gap: 0.5rem;
-						background-color: #141b15;
+						background-color: var(--color-0);
 						border: var(--accent-border);
 						padding: 0.5rem 0.75rem;
 						color: var(--color-3);
@@ -197,7 +197,7 @@
 						}
 
 						&:hover {
-							color: #141b15;
+							color: var(--color-0);
 							background-color: var(--color-3);
 							text-decoration: none;
 						}
