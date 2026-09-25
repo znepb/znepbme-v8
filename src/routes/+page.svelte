@@ -762,7 +762,7 @@
 
 	.section-heading {
 		display: flex;
-		padding: 2.5rem 3.75rem;
+		padding: var(--section-padding-y) var(--section-padding-x);
 		gap: 0.75rem;
 		background-color: var(--color-3);
 		color: var(--background);
@@ -998,6 +998,12 @@
 			& > p {
 				@media screen and (max-width: 40rem) {
 					font-size: 1rem;
+				}
+
+				& > a {
+					&:hover {
+						color: var(--color-3) !important;
+					}
 				}
 
 				z-index: 2;
