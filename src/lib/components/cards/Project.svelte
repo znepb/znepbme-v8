@@ -168,11 +168,10 @@
 					font-size: 1.75rem;
 					font-weight: 600;
 					line-height: 1.75rem;
+					color: var(--foreground);
 				}
 
-				& > p {
-					color: var(--color-3);
-				}
+				color: var(--color-3);
 			}
 
 			& > footer {
