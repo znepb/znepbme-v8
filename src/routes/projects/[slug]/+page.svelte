@@ -8,6 +8,10 @@
 	let { data }: { data: { project: Project } } = $props();
 </script>
 
+<svelte:head>
+	<title>znepb.me - {data.project.name}</title>
+</svelte:head>
+
 <header class="brief">
 	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.project.icon}`} alt="" />
 	<div>

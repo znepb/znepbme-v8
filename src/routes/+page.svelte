@@ -47,6 +47,16 @@
 	let { data }: { data: { projects: Project[]; blogs: Blog[] } } = $props();
 </script>
 
+<svelte:head>
+	<title>znepb.me</title>
+
+	<meta property="og:title" content="znepb.me" />
+	<meta property="og:description" content="The website of znepb, a computer nerd from Ohio." />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:image" content="/logo.png" />
+	<meta name="theme-color" content="#16D34B" />
+</svelte:head>
+
 <section class="hero">
 	<main class="hero-content">
 		<div class="hero-image" style:--bg-url={`url(${header})`}>

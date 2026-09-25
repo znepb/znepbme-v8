@@ -3,6 +3,10 @@
 	import attributions from './attributions.md?raw';
 </script>
 
+<svelte:head>
+	<title>znepb.me - attributions</title>
+</svelte:head>
+
 <div class="markdown-pillarbox">
 	<header class="header">
 		<h2>thank you to these</h2>

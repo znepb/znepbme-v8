@@ -3,6 +3,10 @@
 	import House from '@lucide/svelte/icons/house';
 </script>
 
+<svelte:head>
+	<title>{page.status} :( - znepb.me</title>
+</svelte:head>
+
 <div class="error">
 	<h1>Oops! Something went wrong</h1>
 	<h2>Status: {page.status} ({page.error?.message})</h2>

@@ -6,6 +6,10 @@
 	let { data }: { data: { metadata: Blog; content: string } } = $props();
 </script>
 
+<svelte:head>
+	<title>znepb.me - a thought about {data.metadata.title.toLocaleLowerCase()}</title>
+</svelte:head>
+
 <main class="main markdown-pillarbox">
 	<img
 		src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.metadata.cover}`}
