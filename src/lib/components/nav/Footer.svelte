@@ -4,7 +4,7 @@
 <footer class="footer">
 	<div>
 		<span>© znepb — 2026</span>
-		<span>v8.0.1</span>
+		<span>v8.0.2</span>
 	</div>
 	<div style:text-align="center">
 		designed by <a class="footer-link" href="https://auti.one" target="_blank" rel="noreferrer"
