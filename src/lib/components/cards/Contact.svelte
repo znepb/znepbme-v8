@@ -30,6 +30,7 @@
 			& > :global(svg) {
 				width: 2.5rem;
 				height: 2.5rem;
+				transition: color 0.25s;
 			}
 
 			& > h1 {

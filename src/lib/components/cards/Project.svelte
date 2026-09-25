@@ -185,7 +185,6 @@
 				& > .project-links {
 					display: flex;
 					flex-direction: row;
-					gap: 1.25rem;
 					align-items: center;
 
 					& > a {
@@ -193,7 +192,7 @@
 						align-items: center;
 						gap: 0.5rem;
 						background-color: var(--color-0);
-						border: var(--accent-border);
+						outline: var(--accent-border);
 						padding: 0.5rem 0.75rem;
 						color: var(--color-3);
 						font-size: 1.25rem;
