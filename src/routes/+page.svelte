@@ -759,7 +759,6 @@
 		grid-template-rows: 1fr;
 
 		& > .bento-box {
-			aspect-ratio: 365 / 600;
 			border-left: var(--accent-border);
 		}
 	}
