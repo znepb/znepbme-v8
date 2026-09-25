@@ -8,7 +8,15 @@
 	--color-3: #a7dab5;
 	--color-4: #16d34b;
 
+	--section-padding-x: 3.75rem;
+	--section-padding-y: 2.5rem;
+
 	--accent-border: solid 1px var(--color-1);
+
+	@media screen and (max-width: 40rem) {
+		--section-padding-x: 1.875rem;
+		--section-padding-y: 1.25rem;
+	}
 }
 
 * {
@@ -164,4 +172,40 @@ html {
 .markdown-pillarbox {
 	margin: 2.5rem auto 2.5rem auto;
 	max-width: 60rem;
+	width: calc(100vw - 4rem);
+}
+
+.card {
+	border-left: var(--accent-border);
+	border-bottom: var(--accent-border);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: -1px;
+
+	&:nth-child(4n),
+	&:last-child {
+		border-right: var(--accent-border);
+	}
+
+	&:nth-child(n + 5) {
+		border-top: var(--accent-border);
+	}
+
+	@media screen and (max-width: 64rem) {
+		&:nth-child(2n) {
+			border-right: var(--accent-border);
+		}
+
+		&:nth-child(n + 3) {
+			border-top: var(--accent-border);
+		}
+	}
+
+	@media screen and (max-width: 48rem) {
+		border-right: var(--accent-border);
+
+		&:nth-child(n + 2) {
+			border-top: var(--accent-border);
+		}
+	}
 }

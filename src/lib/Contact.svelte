@@ -74,5 +74,14 @@
 		&:last-child {
 			border-right: var(--accent-border);
 		}
+
+		@media screen and (max-width: 64rem) {
+			border-right: var(--accent-border);
+			border-bottom: var(--accent-border);
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
 	}
 </style>

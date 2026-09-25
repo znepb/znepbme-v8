@@ -6,7 +6,7 @@
 	const { blog, style }: { blog: Blog; style?: HTMLAttributes<HTMLDivElement>['style'] } = $props();
 </script>
 
-<div class="blog-post" {style}>
+<div class="blog-post card" {style}>
 	<header>
 		<img
 			src={`${import.meta.env.VITE_MINIO_ENDPOINT}${blog.cover}`}
@@ -51,17 +51,6 @@
 
 <style>
 	.blog-post {
-		border-left: var(--accent-border);
-		border-bottom: var(--accent-border);
-		margin-bottom: -1px;
-		display: flex;
-		flex-direction: column;
-
-		&:nth-child(4n),
-		&:last-child {
-			border-right: var(--accent-border);
-		}
-
 		&:hover {
 			& > header > div > a {
 				opacity: 1;

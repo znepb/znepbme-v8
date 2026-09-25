@@ -9,7 +9,7 @@
 		$props();
 </script>
 
-<div class="project" {style}>
+<div class="project card" {style}>
 	<header>
 		<img
 			src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0]}`}
@@ -72,17 +72,6 @@
 
 <style>
 	.project {
-		border-left: var(--accent-border);
-		border-bottom: var(--accent-border);
-		display: flex;
-		flex-direction: column;
-		margin-bottom: -1px;
-
-		&:nth-child(4n),
-		&:last-child {
-			border-right: var(--accent-border);
-		}
-
 		&:hover {
 			& > header > div > a {
 				opacity: 1;

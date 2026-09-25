@@ -25,6 +25,15 @@
 		color: var(--color-2);
 		font-size: 1.25rem;
 		margin-top: auto;
+
+		@media screen and (max-width: 64rem) {
+			display: flex;
+			flex-direction: column;
+
+			& > * {
+				text-align: left !important;
+			}
+		}
 	}
 
 	.footer-link {
