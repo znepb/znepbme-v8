@@ -17,7 +17,7 @@ Most over all, I want to thank [AutiOne](https://auti.one) for making this amazi
   - Edited for grayscale photo
 - Maverick photo courtesy of [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maverick_Cedar_Point.jpg), CC-BY 2.0. Author: Craig Lloyd
   - Edited for grayscale photo
-- Home page Hero image, Vinyl spread and Diamondback photo are my own
+- Home page Hero image, CD & Vinyl grid and Diamondback photo are my own
 - All Minecraft photos are from my personal world
 
 ## Projects

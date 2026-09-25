@@ -1,4 +1,5 @@
 ![Website: znepb.me v8. Built with TypeScript, Vite, SvelteKit, Bun, Lucide, SASS, MinIO, and Docker](readme-assets/header.png)
+
 This is the eighth (and hopefully final) iteration of znepb.me, featuring a newly refreshed design by [AutiOne](https://auti.one), management via YML files, and improved accessability.
 
 ### [Go check it out!](https://znepb.me)
