@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Icon from './Icon.svelte';
-	import type { Icons } from './icons';
+	import Icon from '../Icon.svelte';
+	import type { Icons } from '$lib/icons';
 
 	const { icon, name, contact, url }: { icon: Icons; name: string; contact: string; url: string } =
 		$props();

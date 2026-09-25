@@ -1,8 +1,8 @@
 <script lang="ts">
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Globe from '@lucide/svelte/icons/globe';
-	import Icon from './Icon.svelte';
-	import type { Project } from './types';
+	import Icon from '../Icon.svelte';
+	import type { Project } from '../../types';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	const { project, style }: { project: Project; style?: HTMLAttributes<HTMLDivElement>['style'] } =
@@ -12,8 +12,8 @@
 <div class="project card" {style}>
 	<header>
 		<img
-			src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0]}`}
-			alt="Project"
+			src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0].url}`}
+			alt={project.gallery[0].caption}
 			width={1280}
 			height={720}
 		/>
@@ -181,7 +181,7 @@
 							color 0.25s,
 							background-color 0.25s;
 
-						& > svg {
+						& > :global(svg) {
 							color: inherit;
 						}
 

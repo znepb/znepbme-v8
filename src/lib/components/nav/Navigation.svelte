@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Logo from '$lib/Logo.svelte';
+	import Logo from '$lib/components/Logo.svelte';
 	import NavigationLinks from './NavigationLinks.svelte';
 	import Menu from '@lucide/svelte/icons/menu';
 	import X from '@lucide/svelte/icons/x';

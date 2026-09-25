@@ -14,7 +14,10 @@ export type Project = {
 		url: string;
 	}[]?;
 	icon: string;
-	gallery: string[];
+	gallery: {
+		url: string;
+		caption: string;
+	}[];
 };
 
 export type Blog = {

@@ -7,7 +7,11 @@
 </script>
 
 <main class="main markdown-pillarbox">
-	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.metadata.cover}`} class="header-image" />
+	<img
+		src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.metadata.cover}`}
+		class="header-image"
+		alt=""
+	/>
 
 	<header class="post-header">
 		<h1>{data.metadata.title}</h1>

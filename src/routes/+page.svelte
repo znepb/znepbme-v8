@@ -39,10 +39,10 @@
 	import ChevronUp from '@lucide/svelte/icons/chevron-up';
 
 	import type { Blog, Project } from '$lib/types';
-	import Icon from '$lib/Icon.svelte';
-	import ProjectCard from '$lib/Project.svelte';
-	import BlogCard from '$lib/Blog.svelte';
-	import Contact from '$lib/Contact.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import ProjectCard from '$lib/components/cards/Project.svelte';
+	import BlogCard from '$lib/components/cards/Blog.svelte';
+	import Contact from '$lib/components/cards/Contact.svelte';
 
 	let { data }: { data: { projects: Project[]; blogs: Blog[] } } = $props();
 </script>

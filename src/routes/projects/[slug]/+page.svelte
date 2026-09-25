@@ -1,14 +1,15 @@
 <script lang="ts">
 	import SvleteMarkdown from '@humanspeak/svelte-markdown';
 	import type { Project } from '$lib/types';
-	import Icon from '$lib/Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 	import Globe from '@lucide/svelte/icons/globe';
+	import type { Icons } from '$lib/icons';
 
 	let { data }: { data: { project: Project } } = $props();
 </script>
 
 <header class="brief">
-	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.project.icon}`} />
+	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.project.icon}`} alt="" />
 	<div>
 		<h1>{data.project.name}</h1>
 		<h2>{data.project.blurb}</h2>
@@ -58,7 +59,7 @@
 			<div class="technology-list">
 				{#each data.project.technologies as technology (technology)}
 					<div>
-						<Icon icon={technology} />
+						<Icon icon={technology as Icons} />
 						{technology}
 					</div>
 				{/each}
@@ -82,7 +83,7 @@
 	<section class="gallery">
 		{#each data.project.gallery as image (image)}
 			<div>
-				<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${image}`} />
+				<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${image.url}`} alt={image.caption} />
 			</div>
 		{/each}
 
