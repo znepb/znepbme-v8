@@ -1045,6 +1045,10 @@
 		@media screen and (max-width: 48rem) {
 			grid-template-columns: 1fr;
 		}
+
+		@media screen and (max-width: 40rem) {
+			padding: 0 calc((100vw - 22.75rem) / 2);
+		}
 	}
 
 	.contact-cards {
