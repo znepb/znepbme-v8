@@ -4,6 +4,7 @@
 	import Icon from '../Icon.svelte';
 	import type { Project } from '../../types';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 
 	const { project, style }: { project: Project; style?: HTMLAttributes<HTMLDivElement>['style'] } =
 		$props();
@@ -40,9 +41,7 @@
 			<h2>
 				{project.name}
 			</h2>
-			<p>
-				{project.blurb}
-			</p>
+			<SvelteMarkdown source={project.blurb} />
 		</header>
 		<footer>
 			{#if project.links && project.links?.length > 0}

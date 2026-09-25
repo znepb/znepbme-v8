@@ -2,6 +2,7 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Blog } from '$lib/types';
+	import SvelteMarkdown from '@humanspeak/svelte-markdown';
 
 	const { blog, style }: { blog: Blog; style?: HTMLAttributes<HTMLDivElement>['style'] } = $props();
 </script>
@@ -26,9 +27,7 @@
 			<h2>
 				{blog.title}
 			</h2>
-			<p>
-				{blog.blurb}
-			</p>
+			<SvelteMarkdown source={blog.blurb} />
 		</header>
 		<footer>
 			<div class="post-info">
