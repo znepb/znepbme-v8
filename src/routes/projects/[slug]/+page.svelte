@@ -53,48 +53,65 @@
 	</div>
 </section>
 
-<main class="main">
-	<section class="about">
+<main
+	class="main"
+	style:grid-template-columns={data.project.gallery == undefined || data.project.gallery.length == 0
+		? '1fr'
+		: ''}
+>
+	<section
+		class={data.project.gallery == undefined || data.project.gallery.length == 0
+			? 'about-no-gallery'
+			: 'about'}
+	>
 		<article class="markdown description">
 			<SvleteMarkdown source={data.project.description}></SvleteMarkdown>
 		</article>
-		<section class="made-with">
-			<span>Made with</span>
-			<div class="technology-list">
-				{#each data.project.technologies as technology (technology)}
-					<div>
-						<Icon icon={technology as Icons} />
-						{technology}
-					</div>
-				{/each}
-			</div>
-		</section>
-		{#if data.project.links != undefined && data.project.links.length > 0}
-			<section class="links">
-				{#each data.project.links as link (link.url)}
-					<a href={link.url} target="_blank" rel="noreferrer">
-						{#if link.type === 'website'}
-							<Globe />
-						{:else if link.type === 'github'}
-							<Icon icon="github" />
-						{/if}
-						{link.type}
-					</a>
-				{/each}
+		<div>
+			<section class="made-with">
+				<span>Made with</span>
+				<div class="technology-list">
+					{#each data.project.technologies as technology (technology)}
+						<div>
+							<Icon icon={technology as Icons} />
+							{technology}
+						</div>
+					{/each}
+				</div>
 			</section>
-		{/if}
+			{#if data.project.links != undefined && data.project.links.length > 0}
+				<section
+					class="links"
+					class:links-disable-last-border={data.project.gallery == undefined ||
+						data.project.gallery.length == 0}
+				>
+					{#each data.project.links as link (link.url)}
+						<a href={link.url} target="_blank" rel="noreferrer">
+							{#if link.type === 'website'}
+								<Globe />
+							{:else if link.type === 'github'}
+								<Icon icon="github" />
+							{/if}
+							{link.text || link.type}
+						</a>
+					{/each}
+				</section>
+			{/if}
+		</div>
 	</section>
-	<section class="gallery">
-		{#each data.project.gallery as image (image)}
-			<div>
-				<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${image.url}`} alt={image.caption} />
-			</div>
-		{/each}
+	{#if data.project.gallery != undefined && data.project.gallery.length > 0}
+		<section class="gallery">
+			{#each data.project.gallery as image (image)}
+				<div>
+					<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${image.url}`} alt={image.caption} />
+				</div>
+			{/each}
 
-		{#if data.project.gallery.length % 2 == 1}
-			<div></div>
-		{/if}
-	</section>
+			{#if data.project.gallery.length % 2 == 1}
+				<div></div>
+			{/if}
+		</section>
+	{/if}
 </main>
 
 <style lang="scss">
@@ -219,6 +236,32 @@
 		flex-direction: column;
 	}
 
+	.about-no-gallery {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		flex-direction: row;
+		border-bottom: var(--accent-border);
+
+		@media screen and (max-width: 48rem) {
+			grid-template-columns: 1fr;
+
+			& > .description {
+				border-bottom: var(--accent-border) !important;
+			}
+		}
+
+		& > .description {
+			border-right: var(--accent-border);
+			border-bottom: none;
+		}
+
+		& > div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	}
+
 	.description {
 		padding: var(--section-padding-y) var(--section-padding-x);
 		border-bottom: var(--accent-border);
@@ -298,6 +341,12 @@
 			&:last-child {
 				border-bottom: var(--accent-border);
 			}
+		}
+	}
+
+	.links-disable-last-border {
+		& > a {
+			border-bottom: none !important;
 		}
 	}
 </style>

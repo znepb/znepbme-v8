@@ -412,7 +412,9 @@
 			</span>
 		</summary>
 		<div class="expanded-card-list">
-			{#each data.projects.filter((proj) => !proj.isFeatured) as project (project.id)}
+			{#each data.projects
+				.filter((proj) => !proj.isFeatured)
+				.sort((a, b) => (b.endYear || b.startYear) - (a.endYear || a.startYear)) as project (project.id)}
 				<ProjectCard {project} />
 			{/each}
 		</div>

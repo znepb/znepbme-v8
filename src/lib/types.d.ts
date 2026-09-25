@@ -12,9 +12,11 @@ export type Project = {
 	links: {
 		type: 'website' | 'github';
 		url: string;
+		text?: string;
 	}[]?;
 	icon: string;
-	gallery: {
+	color?: string;
+	gallery?: {
 		url: string;
 		caption: string;
 	}[];

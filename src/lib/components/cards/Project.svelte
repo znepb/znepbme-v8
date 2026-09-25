@@ -11,12 +11,23 @@
 
 <div class="project card" {style}>
 	<header>
-		<img
-			src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0].url}`}
-			alt={project.gallery[0].caption}
-			width={1280}
-			height={720}
-		/>
+		{#if project.gallery != undefined && project.gallery.length > 0}
+			<img
+				src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.gallery[0]?.url}`}
+				alt={project.gallery[0]?.caption}
+				width={1280}
+				height={720}
+			/>
+		{:else}
+			<header style:background-color={project.color!} class="header-color">
+				<img
+					src={`${import.meta.env.VITE_MINIO_ENDPOINT}${project.icon}`}
+					alt={project.icon}
+					width={128}
+					height={128}
+				/>
+			</header>
+		{/if}
 		<div>
 			<a href={`/projects/${project.id}`}>
 				<span>View More</span>
@@ -43,7 +54,7 @@
 							{:else if link.type === 'github'}
 								<Icon icon="github" />
 							{/if}
-							{link.type}
+							{link.text || link.type}
 						</a>
 					{/each}
 				</div>
@@ -87,6 +98,15 @@
 				width: 100%;
 				aspect-ratio: 16 / 9;
 				height: auto;
+			}
+
+			& > header {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				height: auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
 			& > div {
