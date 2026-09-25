@@ -36,6 +36,7 @@
 		"@humanspeak/svelte-markdown": "^1.9.2",
 		"@lucide/svelte": "^1.47.0",
 		"@types/bun": "^1.4.2",
-		"minio": "^8.0.7"
+		"minio": "^8.0.7",
+		"svelte-adapter-bun": "^1.0.1"
 	}
 }

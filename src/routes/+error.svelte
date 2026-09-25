@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/state';
-	import House from '@lucide/svelte/icons/House';
+	import House from '@lucide/svelte/icons/house';
 </script>
 
 <div class="error">
