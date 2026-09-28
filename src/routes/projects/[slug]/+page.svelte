@@ -123,7 +123,7 @@
 		padding: 0 3.75rem;
 		align-items: center;
 
-		@media screen and (max-width: 48rem) {
+		@media screen and (max-width: var(--screen-size-m)) {
 			padding: 2.5rem;
 			flex-direction: column;
 			gap: 2rem;
@@ -161,7 +161,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 
-		@media screen and (max-width: 40rem) {
+		@media screen and (max-width: var(--screen-size-s)) {
 			grid-template-columns: 1fr !important;
 
 			& > div {
@@ -169,7 +169,7 @@
 			}
 		}
 
-		@media screen and (max-width: 64rem) {
+		@media screen and (max-width: var(--screen-size-l)) {
 			grid-template-columns: 1fr 1fr;
 
 			& > div {
@@ -225,7 +225,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 
-		@media screen and (max-width: 48rem) {
+		@media screen and (max-width: var(--screen-size-m)) {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -242,7 +242,7 @@
 		flex-direction: row;
 		border-bottom: var(--accent-border);
 
-		@media screen and (max-width: 48rem) {
+		@media screen and (max-width: var(--screen-size-m)) {
 			grid-template-columns: 1fr;
 
 			& > .description {
@@ -280,7 +280,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 
-		@media screen and (max-width: 48rem) {
+		@media screen and (max-width: var(--screen-size-m)) {
 			grid-template-columns: 1fr;
 
 			& > div {

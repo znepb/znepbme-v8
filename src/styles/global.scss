@@ -13,7 +13,12 @@
 
 	--accent-border: solid 1px var(--color-1);
 
-	@media screen and (max-width: 40rem) {
+	--screen-size-xl: 80rem;
+	--screen-size-l: 64rem;
+	--screen-size-m: 48rem;
+	--screen-size-s: 40rem;
+
+	@media screen and (max-width: var(--screen-size-s)) {
 		--section-padding-x: 1.875rem;
 		--section-padding-y: 1.25rem;
 	}
@@ -278,7 +283,7 @@ html {
 		border-top: var(--accent-border);
 	}
 
-	@media screen and (max-width: 64rem) {
+	@media screen and (max-width: var(--screen-size-l)) {
 		&:nth-child(2n) {
 			border-right: var(--accent-border);
 		}
@@ -288,7 +293,7 @@ html {
 		}
 	}
 
-	@media screen and (max-width: 48rem) {
+	@media screen and (max-width: var(--screen-size-m)) {
 		border-right: var(--accent-border);
 
 		&:nth-child(n + 2) {

@@ -23,7 +23,7 @@
 		font-size: 1.25rem;
 		margin-top: auto;
 
-		@media screen and (max-width: 64rem) {
+		@media screen and (max-width: var(--screen-size-l)) {
 			display: flex;
 			flex-direction: column;
 

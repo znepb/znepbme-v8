@@ -76,7 +76,7 @@
 			border-right: var(--accent-border);
 		}
 
-		@media screen and (max-width: 64rem) {
+		@media screen and (max-width: var(--screen-size-l)) {
 			border-right: var(--accent-border);
 			border-bottom: var(--accent-border);
 
