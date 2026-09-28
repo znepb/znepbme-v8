@@ -29,10 +29,7 @@
 
 	{#if data.metadata.files != undefined && data.metadata.files.length > 0}
 		<section class="attachments">
-			<header class="subheading">
-				<h3>attachments</h3>
-				<div></div>
-			</header>
+			<h3 class="subheading">attachments</h3>
 			<div>
 				{#each data.metadata.files as file (file.url)}
 					<a class="attachment" href={file.url} download>

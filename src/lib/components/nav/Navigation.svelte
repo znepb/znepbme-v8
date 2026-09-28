@@ -3,9 +3,18 @@
 	import NavigationLinks from './NavigationLinks.svelte';
 	import Menu from '@lucide/svelte/icons/menu';
 	import X from '@lucide/svelte/icons/x';
+	import Settings from '@lucide/svelte/icons/settings';
+	import AccessabilityModal from './AccessabilityModal.svelte';
 
 	let open = $state(false);
+	let accessabilityModalOpen = $state(false);
+
+	const openSettingsModal = () => {
+		accessabilityModalOpen = true;
+	};
 </script>
+
+<AccessabilityModal bind:open={accessabilityModalOpen} />
 
 <nav class="desktop-nav">
 	<a class="logo-box" href="/">
@@ -14,6 +23,7 @@
 	<div class="links-container">
 		<ul class="links">
 			<NavigationLinks />
+			<button onclick={openSettingsModal} class="square"><Settings /></button>
 		</ul>
 	</div>
 </nav>
@@ -27,7 +37,7 @@
 		<div class="mobile-nav-control mobile-nav-expand"><Menu size="40px" /></div>
 		<div class="mobile-nav-control mobile-nav-shrink"><X size="40px" /></div>
 	</summary>
-	<div>
+	<div class="mobile-nav-main">
 		<ul class="links">
 			<NavigationLinks
 				closeNav={() => {
@@ -36,6 +46,8 @@
 				}}
 			/>
 		</ul>
+
+		<button onclick={openSettingsModal} class="square"><Settings /></button>
 	</div>
 </details>
 
@@ -119,6 +131,13 @@
 		list-style: none;
 	}
 
+	.mobile-nav-main {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
 	.mobile-nav-control {
 		margin-right: 3.75rem;
 	}
@@ -162,6 +181,7 @@
 
 		display: flex;
 		flex-direction: row;
+		align-items: center;
 		gap: 1rem;
 		font-size: 1.25rem;
 

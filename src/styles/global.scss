@@ -19,6 +19,35 @@
 	}
 }
 
+// Courtesy of https://gist.github.com/mvilrokx/4536584
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('/fonts/OpenDyslexic-Regular.otf');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('/fonts/OpenDyslexic-Italic.otf');
+	font-style: italic;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('/fonts/OpenDyslexic-Bold.otf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('/fonts/OpenDyslexic-BoldItalic.otf');
+	font-weight: bold;
+	font-style: italic;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -34,6 +63,60 @@ a {
 	&.white {
 		color: var(--foreground);
 		text-decoration: underline !important;
+	}
+}
+
+button {
+	all: unset;
+
+	color: var(--color-3);
+	outline: var(--accent-border);
+	display: flex;
+	padding: 0.75rem 1.125rem;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 1.25rem;
+
+	transition:
+		color 0.25s,
+		background-color 0.25s;
+
+	&:hover {
+		color: var(--background);
+		background-color: var(--color-3);
+	}
+
+	&.square {
+		padding: 0.75rem;
+	}
+}
+
+.form-control-area {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.25rem;
+}
+
+input[type='checkbox'] {
+	all: unset;
+
+	display: inline-block;
+	outline: var(--accent-border);
+	width: 1.5rem;
+	height: 1.5rem;
+
+	position: relative;
+
+	&:checked::after {
+		display: inline-block;
+		content: ' ';
+		position: absolute;
+		background-color: var(--color-3);
+		width: 1rem;
+		height: 1rem;
+		left: 0.25rem;
+		top: 0.25rem;
 	}
 }
 
@@ -61,6 +144,10 @@ body,
 html {
 	padding: 0;
 	margin: 0;
+
+	&.font-opendyslexic {
+		font-family: 'opendyslexic';
+	}
 
 	font-family: 'Atkinson Hyperlegible Next', sans-serif;
 	font-weight: 400;
@@ -101,16 +188,16 @@ html {
 }
 
 .subheading {
-	& > h3 {
-		line-height: 1.25rem;
-		font-size: 1.5rem;
-		font-style: italic;
-		font-weight: 800;
-		padding: 0;
-		margin: 0;
-	}
+	line-height: 1.25rem;
+	font-size: 1.5rem;
+	font-style: italic;
+	font-weight: 800;
+	padding: 0;
+	margin: 0;
 
-	& > div {
+	&::after {
+		content: '';
+		display: block;
 		width: 4rem;
 		height: 0.25rem;
 		background-color: var(--color-4);

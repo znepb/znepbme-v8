@@ -20,6 +20,10 @@ Most over all, I want to thank [AutiOne](https://auti.one) for making this amazi
 - Home page Hero image, CD & Vinyl grid and Diamondback photo are my own
 - All Minecraft photos are from my personal world
 
+## Fonts
+
+- [OpenDyslexic](https://antijingoist.itch.io/opendyslexic), licensed under SIL Open Font License
+
 ## Projects
 
 This list is not exhaustive, but it does include many of the primary projects that made znepb.me possible.

@@ -435,10 +435,7 @@
 	</p>
 
 	<main class="tech-and-tools-grid">
-		<div class="subheading">
-			<h3>langs & frameworks</h3>
-			<div></div>
-		</div>
+		<h3 class="subheading">langs & frameworks</h3>
 		<div class="technology-list">
 			<div>
 				<Icon icon="typescript" />
@@ -482,10 +479,7 @@
 			</div>
 			<div>java</div>
 		</div>
-		<div class="subheading">
-			<h3>software & tools</h3>
-			<div></div>
-		</div>
+		<h3 class="subheading">software & tools</h3>
 		<div class="technology-list">
 			<div>
 				<Icon icon="figma" />
