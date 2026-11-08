@@ -52,6 +52,8 @@
 </details>
 
 <style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.desktop-nav {
 		display: flex;
 		flex-direction: row;
@@ -65,7 +67,7 @@
 
 		z-index: 1000;
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			display: none;
 		}
 	}
@@ -86,7 +88,7 @@
 
 		z-index: 1000;
 
-		@media screen and (var(screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			display: block;
 		}
 
@@ -151,7 +153,7 @@
 			color 0.25s,
 			background-color 0.25s;
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			border-right: none;
 
 			&:hover {
@@ -187,7 +189,7 @@
 
 		font-weight: 500;
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			flex-direction: column;
 			align-items: flex-end;
 			font-size: 2rem;

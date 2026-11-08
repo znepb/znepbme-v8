@@ -22,7 +22,9 @@
 	</main>
 {/if}
 
-<style>
+<style lang="scss">
+	@use '../../styles/_variables.scss' as *;
+
 	.modal {
 		background-color: var(--background);
 		border: var(--accent-border);

@@ -14,6 +14,8 @@
 </footer>
 
 <style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.footer {
 		padding: 1.5rem 3.75rem;
 		background-color: #070a08;
@@ -23,7 +25,7 @@
 		font-size: 1.25rem;
 		margin-top: auto;
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			display: flex;
 			flex-direction: column;
 

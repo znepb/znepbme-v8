@@ -588,6 +588,8 @@
 </section>
 
 <style lang="scss">
+	@use '../styles/_variables.scss' as *;
+
 	.hero {
 		min-height: calc(100vh - 8.3125rem);
 		display: flex;
@@ -600,7 +602,7 @@
 		gap: 1px;
 		flex-grow: 1;
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			display: flex;
 			flex-direction: column;
 			gap: 0;
@@ -624,7 +626,7 @@
 
 		border-right: var(--accent-border);
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			border-bottom: var(--accent-border);
 			border-right: none;
 			gap: 2rem;
@@ -829,7 +831,7 @@
 			border-left: var(--accent-border);
 		}
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			& > .bento-box {
 				aspect-ratio: 549 / 300 !important;
 			}
@@ -849,7 +851,7 @@
 			border-right: var(--accent-border);
 		}
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			display: flex;
 			flex-direction: column;
 		}
@@ -980,7 +982,7 @@
 				font-weight: 800;
 				z-index: 2;
 
-				@media screen and (max-width: var(--screen-size-s)) {
+				@media screen and (max-width: $screen-size-s) {
 					font-size: 1.25rem;
 				}
 			}
@@ -995,7 +997,7 @@
 			}
 
 			& > p {
-				@media screen and (max-width: var(--screen-size-s)) {
+				@media screen and (max-width: $screen-size-s) {
 					font-size: 1rem;
 				}
 
@@ -1028,11 +1030,11 @@
 			grid-template-columns: 1fr 1fr;
 		}
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			grid-template-columns: 1fr;
 		}
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			padding: 0 calc((100vw - 22.75rem) / 2);
 		}
 	}
@@ -1043,15 +1045,15 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			grid-template-columns: 1fr 1fr;
 		}
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			grid-template-columns: 1fr;
 		}
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			padding: 0 calc((100vw - 22.75rem) / 2);
 		}
 	}
@@ -1063,11 +1065,11 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			grid-template-columns: 1fr;
 		}
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			padding: 0 calc((100vw - 22.75rem) / 2);
 		}
 	}
@@ -1087,7 +1089,7 @@
 		grid-auto-flow: column;
 		align-items: start;
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			display: flex;
 			flex-direction: column;
 		}

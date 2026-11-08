@@ -121,6 +121,8 @@
 </main>
 
 <style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.brief {
 		border-bottom: var(--accent-border);
 
@@ -129,7 +131,7 @@
 		padding: 0 3.75rem;
 		align-items: center;
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			padding: 2.5rem;
 			flex-direction: column;
 			gap: 2rem;
@@ -167,7 +169,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 
-		@media screen and (max-width: var(--screen-size-s)) {
+		@media screen and (max-width: $screen-size-s) {
 			grid-template-columns: 1fr !important;
 
 			& > div {
@@ -175,7 +177,7 @@
 			}
 		}
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			grid-template-columns: 1fr 1fr;
 
 			& > div {
@@ -231,7 +233,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -248,7 +250,7 @@
 		flex-direction: row;
 		border-bottom: var(--accent-border);
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			grid-template-columns: 1fr;
 
 			& > .description {
@@ -286,7 +288,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 
-		@media screen and (max-width: var(--screen-size-m)) {
+		@media screen and (max-width: $screen-size-m) {
 			grid-template-columns: 1fr;
 
 			& > div {

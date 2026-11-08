@@ -14,7 +14,9 @@
 	<a class="home" href="/"><House /> Go Home</a>
 </div>
 
-<style>
+<style lang="scss">
+	@use '../styles/_variables.scss' as *;
+
 	.error {
 		height: 100vh;
 		display: flex;

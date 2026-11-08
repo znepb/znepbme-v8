@@ -64,6 +64,8 @@
 </main>
 
 <style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.main {
 		display: flex;
 		flex-direction: column;

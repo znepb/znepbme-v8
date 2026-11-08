@@ -48,7 +48,9 @@
 	</main>
 </div>
 
-<style>
+<style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.blog-post {
 		&:hover {
 			& > header > div > a {

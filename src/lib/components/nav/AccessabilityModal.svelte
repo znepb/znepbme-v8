@@ -25,7 +25,9 @@
 	<p class="note">Some settings may require a page reload to apply.</p>
 </Modal>
 
-<style>
+<style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.note {
 		margin-top: 1rem;
 		font-size: 1rem;

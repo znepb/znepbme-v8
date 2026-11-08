@@ -16,6 +16,8 @@
 </a>
 
 <style lang="scss">
+	@use '../../../styles/_variables.scss' as *;
+
 	.contact-card {
 		color: var(--foreground);
 		border-left: var(--accent-border);
@@ -76,7 +78,7 @@
 			border-right: var(--accent-border);
 		}
 
-		@media screen and (max-width: var(--screen-size-l)) {
+		@media screen and (max-width: $screen-size-l) {
 			border-right: var(--accent-border);
 			border-bottom: var(--accent-border);
 
