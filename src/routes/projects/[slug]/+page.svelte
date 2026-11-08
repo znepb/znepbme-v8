@@ -6,11 +6,17 @@
 	import type { Icons } from '$lib/icons';
 
 	let { data }: { data: { project: Project } } = $props();
+
+	//let currentGalleryIndex: number | undefined = undefined;
 </script>
 
 <svelte:head>
 	<title>znepb.me - {data.project.name}</title>
 </svelte:head>
+
+<!--
+<div class="backdrop"></div>
+-->
 
 <header class="brief">
 	<img src={`${import.meta.env.VITE_MINIO_ENDPOINT}${data.project.icon}`} alt="" />

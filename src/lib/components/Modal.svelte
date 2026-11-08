@@ -7,7 +7,7 @@
 </script>
 
 {#if open}
-	<main class="modal-backdrop">
+	<main class="backdrop">
 		<div class="modal">
 			<header class="subheading modal-header">{header}</header>
 
@@ -23,20 +23,6 @@
 {/if}
 
 <style>
-	.modal-backdrop {
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 10000;
-		width: 100vw;
-		height: 100vh;
-		position: fixed;
-		left: 0;
-		top: 0;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	.modal {
 		background-color: var(--background);
 		border: var(--accent-border);

@@ -567,6 +567,11 @@
 		<p>
 			If you need to get in touch or see more of my work, you can find me in the following online
 			platforms:
+			<span class="discord-disclaimer"
+				>Note regarding Discord: My DM's are open for all servers I'm in. If we do not share a
+				server, please send me a friend request. However, I will not accept friend requests from
+				accounts &lt;1 year old. Please use another one of the listed contact methods.</span
+			>
 		</p>
 	</div>
 
@@ -1133,5 +1138,11 @@
 				display: none;
 			}
 		}
+	}
+
+	.discord-disclaimer {
+		display: block;
+		font-size: 1rem;
+		color: var(--color-2);
 	}
 </style>
